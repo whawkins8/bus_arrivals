@@ -35,6 +35,11 @@ class GetBuses:
     def parse_response(self):
         data = self.response.json()['data']["20"]
 
+        for bus in data:
+            ID = data['vehicle_id']
+            loc = data['location']
+            
+
 
 
         
