@@ -7,8 +7,6 @@ import dateutil.parser
 ## Route 4 -> route = "4000034"
 ## stop -> stop = "4101146"
 
-apikey = "2508071175msh5df3930a1b4758ep14c08ajsnaf32aa9a059d"
-
 class RouteAndStop:
     # class for holding agency, route, and stop information.
     # agency, route, and stop should be strings.
@@ -23,7 +21,7 @@ class GetArrivals:
     # Attributes:
     #   self.url - API url
     #   self.headers - API headers
-    #   self.response - response from GET 
+    #   self.response - response from GET
     #   self.arrival - datetime object with arrival time. Set to -1 if API does not return a time.
     # Methods:
     #   __init__ - builds API query from input RouteAndStop, calls get_response().
@@ -42,7 +40,7 @@ class GetArrivals:
         try:
             self.response = requests.request("GET", self.url, headers=self.headers, params=self.querystring)
             self.response.raise_for_status()
-        
+
         except requests.HTTPError as http_err:
             print(f'HTTP error occurred: {http_err}')
         except Exception as err:
@@ -52,7 +50,7 @@ class GetArrivals:
 
     def parse_response(self):
         response_data = self.response.json()
-        
+
         num_arrivals = len(response_data['data'])
         if num_arrivals < 1:
             self.arrival = -1
@@ -63,7 +61,7 @@ class GetArrivals:
         return self.arrival
 
     def __str__(self):
-        return(str(self.arrival)) 
+        return(str(self.arrival))
 
 r = RouteAndStop("20", "4000034", "4101146")
 arriv = GetArrivals(r)
