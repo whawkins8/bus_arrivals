@@ -1,3 +1,5 @@
+from config import get_transloc_key
+
 class GetArrivals:
     # wrap API calls for retrieving arrival times.
     # Attributes:
@@ -15,7 +17,7 @@ class GetArrivals:
         self.querystring = {"routes":route_and_stop.route, "stops":route_and_stop.stop,
                             "agencies":route_and_stop.agency}
         self.headers = {'x-rapidapi-host': "transloc-api-1-2.p.rapidapi.com",
-                        'x-rapidapi-key': apikey}
+                        'x-rapidapi-key': get_transloc_key()}
 
         self.get_response()
 

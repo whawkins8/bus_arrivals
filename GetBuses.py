@@ -1,5 +1,5 @@
 import requests
-
+from config import get_transloc_key
 
 class Bus:
     def __init__(self, ID, arrivals):
@@ -15,7 +15,7 @@ class GetBuses:
         self.url = "https://transloc-api-1-2.p.rapidapi.com/vehicles.json"
         self.querystring = {"routes":route_and_stop.route, "agencies":route_and_stop.agency}
         self.headers = {'x-rapidapi-host': "transloc-api-1-2.p.rapidapi.com",
-                        'x-rapidapi-key': apikey}
+                        'x-rapidapi-key': get_transloc_key()}
 
         self.get_buses()
 

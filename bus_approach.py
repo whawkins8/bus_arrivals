@@ -2,6 +2,7 @@ import requests
 import json
 import datetime
 import dateutil.parser
+from config import get_transloc_key
 
 ## GoRaleigh -> agency "20"
 ## Route 4 -> route = "4000034"
@@ -32,7 +33,7 @@ class GetArrivals:
         self.url = "https://transloc-api-1-2.p.rapidapi.com/arrival-estimates.json"
         self.querystring = {"routes":route_and_stop.route, "stops":route_and_stop.stop,
                         "agencies":route_and_stop.agency}
-        self.headers = {'x-rapidapi-host': "transloc-api-1-2.p.rapidapi.com", 'x-rapidapi-key': apikey}
+        self.headers = {'x-rapidapi-host': "transloc-api-1-2.p.rapidapi.com", 'x-rapidapi-key': get_transloc_key()}
 
         self.get_response()
 
