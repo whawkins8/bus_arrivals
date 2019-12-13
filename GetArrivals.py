@@ -1,23 +1,3 @@
-import requests
-import json
-import datetime
-import dateutil.parser
-
-## GoRaleigh -> agency "20"
-## Route 4 -> route = "4000034"
-## stop -> stop = "4101146"
-
-apikey = "2508071175msh5df3930a1b4758ep14c08ajsnaf32aa9a059d"
-
-class RouteAndStop:
-    # class for holding agency, route, and stop information.
-    # agency, route, and stop should be strings.
-    def __init__(self, agency, route, stop):
-        self.agency = agency
-        self.route = route
-        self.stop = stop
-
-
 class GetArrivals:
     # wrap API calls for retrieving arrival times.
     # Attributes:
@@ -64,8 +44,3 @@ class GetArrivals:
 
     def __str__(self):
         return(str(self.arrival)) 
-
-r = RouteAndStop("20", "4000034", "4101146")
-arriv = GetArrivals(r)
-
-
