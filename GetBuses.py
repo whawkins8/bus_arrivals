@@ -23,7 +23,8 @@ class GetBuses:
 
     def get_response(self):
         try:
-            self.response = requests.request("GET", self.url, headers=self.headers, params=self.querystring)
+            self.response = requests.request("GET", self.url, headers=self.headers,
+                                             params=self.querystring)
             self.response.raise_for_status()
 
         except requests.HTTPError as http_err:
@@ -35,16 +36,16 @@ class GetBuses:
 
     def parse_response(self):
         data = self.response.json()['data'][self.querystring['agencies']]
-        
+
         for bus in data:
             ID = bus['vehicle_id']
             loc = bus['location']
             arriv = bus['arrival_estimates']
             newbus = Bus(ID, loc, arriv)
             self.buses.append(newbus)
-    
-        
-        
+
+
+
 if __name__ == '__main__':
     routeinfo = RouteAndStop("20", "4000034", "4101146")
     b = GetBuses(routeinfo)

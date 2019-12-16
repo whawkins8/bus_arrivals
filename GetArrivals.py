@@ -1,4 +1,7 @@
+import dateutil
+import datetime
 from config import get_transloc_key
+
 
 class GetArrivals:
     # wrap API calls for retrieving arrival times.
