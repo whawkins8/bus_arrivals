@@ -1,5 +1,8 @@
-import dateutil
 import datetime
+import dateutil.parser
+import requests
+
+from RouteAndStop import RouteAndStop
 from config import get_transloc_key
 
 
@@ -53,6 +56,8 @@ class GetArrivals:
         return(str(self.arrival))
 
 
-
+if __name__ == '__main__':
+    route_data = RouteAndStop('20', '4000034', '4101146')
+    arriv = GetArrivals(route_data)
 
 
