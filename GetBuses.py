@@ -36,6 +36,7 @@ class GetBuses:
             return self.parse_response()
 
     def parse_response(self):
+        #TODO: handle exception if there is a KeyError here.
         data = self.response.json()['data'][self.querystring['agencies']]
 
         for bus in data:
