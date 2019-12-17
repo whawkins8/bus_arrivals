@@ -32,7 +32,8 @@ class GetBuses:
         except Exception as err:
             print(f'Other error occurred: {err}')
         else:
-            self.parse_response()
+            self.buses.clear()
+            return self.parse_response()
 
     def parse_response(self):
         data = self.response.json()['data'][self.querystring['agencies']]
@@ -44,6 +45,7 @@ class GetBuses:
             newbus = Bus(ID, loc, arriv)
             self.buses.append(newbus)
 
+        return self.buses
 
 
 if __name__ == '__main__':
