@@ -49,7 +49,7 @@ class GetArrivals:
             return self.arrival
 
         arriv_time = response_data['data'][0]['arrivals'][0]['arrival_at']
-        self.arrival = dateutil.parser.parse(arriv_time)
+        self.arrival = dateutil.parser.parse(arriv_time).replace(tzinfo=None)
         return self.arrival
 
     def __str__(self):
