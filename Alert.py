@@ -28,7 +28,11 @@ def stop_alert(RouteAndStop, stop_id):
 
     next_stops = []
     for bus in buses:
+        # here we only add the next two stops to the list.
+        # if we want to alert earlier, we can later add more stops
+        # to be checked.
         next_stops.append(bus.arrivals[0]['stop_id'])
+        next_stops.append(bus.arrivals[1]['stop_id'])
 
     if stop_id in next_stops:
         return True
@@ -39,5 +43,5 @@ def stop_alert(RouteAndStop, stop_id):
 
 if __name__ == '__main__':
     route_info = RouteAndStop('20', '4000034', '4101146')
-    #print(time_alert(route_info, 5))
-    stop_alert(route_info, '')
+    print(time_alert(route_info, 5))
+    print(stop_alert(route_info, '4101146'))

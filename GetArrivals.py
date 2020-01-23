@@ -16,7 +16,8 @@ class GetArrivals:
     # Methods:
     #   __init__ - builds API query from input RouteAndStop, calls get_response().
     #   get_response - does a GET on the API, calls parse_response() to parse the json.
-    #   parse_response - parses the json and extracts the time of arrival, and sets self.arrival.
+    #   parse_response - parses the json and extracts the time of arrival,
+    #                    and sets self.arrival.
 
     def __init__(self, route_and_stop):
         self.url = "https://transloc-api-1-2.p.rapidapi.com/arrival-estimates.json"
