@@ -27,6 +27,7 @@ def get_transloc_key():
         key = json.load(config_file)['api_key'] 
         config_file.close() 
         return key 
+        
     except FileNotFoundError:
         raise Exception("Need to set your api key first.")
     except KeyError:
